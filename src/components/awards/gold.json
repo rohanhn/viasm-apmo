@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_awards_golds",
+  "info": {
+    "displayName": "Gold"
+  },
+  "options": {},
+  "attributes": {
+    "gold_cut": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}
