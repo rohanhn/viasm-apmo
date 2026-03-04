@@ -707,34 +707,103 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
-  collectionName: 'globals';
+export interface ApiProblemSolutionProblemSolution
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'problem_solutions';
   info: {
-    description: 'Define global settings';
-    displayName: 'Global';
-    pluralName: 'globals';
-    singularName: 'global';
+    displayName: 'Problem solution';
+    pluralName: 'problem-solutions';
+    singularName: 'problem-solution';
   };
   options: {
-    draftAndPublish: false;
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    file: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::global.global'
-    > &
-      Schema.Attribute.Private;
+      'api::problem-solution.problem-solution'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    siteDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    siteName: Schema.Attribute.String & Schema.Attribute.Required;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+  };
+}
+
+export interface ApiProblemStatementProblemStatement
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'problem_statements';
+  info: {
+    displayName: 'Problem statement';
+    pluralName: 'problem-statements';
+    singularName: 'problem-statement';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.Media<
+      'images' | 'videos' | 'audios' | 'files',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::problem-statement.problem-statement'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
   };
 }
 
@@ -1432,7 +1501,8 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::country-ranking.country-ranking': ApiCountryRankingCountryRanking;
       'api::country.country': ApiCountryCountry;
-      'api::global.global': ApiGlobalGlobal;
+      'api::problem-solution.problem-solution': ApiProblemSolutionProblemSolution;
+      'api::problem-statement.problem-statement': ApiProblemStatementProblemStatement;
       'api::regulation.regulation': ApiRegulationRegulation;
       'api::timeline.timeline': ApiTimelineTimeline;
       'api::year.year': ApiYearYear;
