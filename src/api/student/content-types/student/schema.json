@@ -18,12 +18,14 @@
     "country": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::country.country"
+      "target": "api::country.country",
+      "required": true
     },
     "year": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::year.year"
+      "target": "api::year.year",
+      "required": true
     },
     "rank": {
       "type": "integer",

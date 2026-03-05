@@ -882,7 +882,8 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
-    country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'>;
+    country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -965,7 +966,8 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 
