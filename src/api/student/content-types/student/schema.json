@@ -106,7 +106,7 @@
       },
       "required": true
     },
-    "Award": {
+    "award": {
       "type": "string",
       "pluginOptions": {
         "i18n": {

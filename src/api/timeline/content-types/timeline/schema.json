@@ -18,7 +18,8 @@
     "year": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::year.year"
+      "target": "api::year.year",
+      "required": true
     },
     "num_countries": {
       "type": "biginteger",

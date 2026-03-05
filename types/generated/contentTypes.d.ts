@@ -589,7 +589,8 @@ export interface ApiCountryRankingCountryRanking
           localized: true;
         };
       }>;
-    country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'>;
+    country: Schema.Attribute.Relation<'oneToOne', 'api::country.country'> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -640,7 +641,8 @@ export interface ApiCountryRankingCountryRanking
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -754,7 +756,8 @@ export interface ApiProblemSolutionProblemSolution
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -804,7 +807,8 @@ export interface ApiProblemStatementProblemStatement
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -850,7 +854,8 @@ export interface ApiRegulationRegulation extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year_name: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year_name: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -870,7 +875,7 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    Award: Schema.Attribute.String &
+    award: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1049,7 +1054,8 @@ export interface ApiTimelineTimeline extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 

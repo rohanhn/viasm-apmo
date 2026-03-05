@@ -18,7 +18,8 @@
     "year_name": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::year.year"
+      "target": "api::year.year",
+      "required": true
     },
     "file": {
       "type": "media",
