@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "country_rankings",
+  "collectionName": "students",
   "info": {
-    "singularName": "country-ranking",
-    "pluralName": "country-rankings",
-    "displayName": "Country Ranking"
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student"
   },
   "options": {
     "draftAndPublish": true
@@ -15,6 +15,11 @@
     }
   },
   "attributes": {
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country.country"
+    },
     "year": {
       "type": "relation",
       "relation": "oneToOne",
@@ -26,14 +31,28 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "country": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::country.country"
+    "last_name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     },
-    "contestants_num": {
+    "first_name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "P1": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
@@ -42,7 +61,7 @@
       },
       "required": true
     },
-    "total_score": {
+    "P2": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
@@ -51,37 +70,50 @@
       },
       "required": true
     },
-    "gold_cut": {
+    "P3": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "silver_cut": {
+    "P4": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "bronze_cut": {
+    "P5": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
-    "honorable_mentions": {
+    "total": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
+    },
+    "Award": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     },
     "slug": {
       "type": "uid",
