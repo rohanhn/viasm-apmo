@@ -682,6 +682,13 @@ export interface ApiCountryRankingsAndAwardsOnlyCountryRankingsAndAwardsOnly
       'api::country-rankings-and-awards-only.country-rankings-and-awards-only'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -974,7 +981,21 @@ export interface ApiProblemProblem extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    problem_number: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     standard_deviation: Schema.Attribute.Decimal &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -984,8 +1005,7 @@ export interface ApiProblemProblem extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
-      Schema.Attribute.Required;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
   };
 }
 
@@ -1069,6 +1089,13 @@ export interface ApiStatisticsByProblemStatisticsByProblem
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     standard_deviation: Schema.Attribute.Decimal &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -1079,7 +1106,8 @@ export interface ApiStatisticsByProblemStatisticsByProblem
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 

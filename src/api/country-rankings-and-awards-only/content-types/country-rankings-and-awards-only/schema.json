@@ -18,8 +18,7 @@
     "year": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::year.year",
-      "required": true
+      "target": "api::year.year"
     },
     "file": {
       "type": "media",
@@ -36,6 +35,15 @@
         "audios",
         "files"
       ]
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

@@ -18,8 +18,7 @@
     "year": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::year.year",
-      "required": true
+      "target": "api::year.year"
     },
     "standard_deviation": {
       "type": "decimal",
@@ -36,6 +35,24 @@
           "localized": true
         }
       }
+    },
+    "problem_number": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }
