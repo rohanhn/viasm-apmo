@@ -646,6 +646,49 @@ export interface ApiCountryRankingCountryRanking
   };
 }
 
+export interface ApiCountryRankingsAndAwardsOnlyCountryRankingsAndAwardsOnly
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'country_rankings_and_awards_onlies';
+  info: {
+    displayName: 'Country rankings and awards only';
+    pluralName: 'country-rankings-and-awards-onlies';
+    singularName: 'country-rankings-and-awards-only';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    file: Schema.Attribute.Media<
+      'images' | 'videos' | 'audios' | 'files',
+      true
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::country-rankings-and-awards-only.country-rankings-and-awards-only'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
+  };
+}
+
 export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
   collectionName: 'countries';
   info: {
@@ -707,6 +750,95 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGeneralInfoGeneralInfo extends Struct.CollectionTypeSchema {
+  collectionName: 'general_infos';
+  info: {
+    displayName: 'General Information';
+    pluralName: 'general-infos';
+    singularName: 'general-info';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    bronze_cut_off: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    gold_cut_off: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::general-info.general-info'
+    >;
+    mean_score: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    participating_countries: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    participating_students: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    silver_cut_off: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    standard_deviation: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
   };
 }
 
@@ -812,6 +944,51 @@ export interface ApiProblemStatementProblemStatement
   };
 }
 
+export interface ApiProblemProblem extends Struct.CollectionTypeSchema {
+  collectionName: 'problems';
+  info: {
+    displayName: 'Problem';
+    pluralName: 'problems';
+    singularName: 'problem';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::problem.problem'
+    >;
+    mean_score: Schema.Attribute.Decimal &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    standard_deviation: Schema.Attribute.Decimal &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface ApiRegulationRegulation extends Struct.CollectionTypeSchema {
   collectionName: 'regulations';
   info: {
@@ -856,6 +1033,53 @@ export interface ApiRegulationRegulation extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     year_name: Schema.Attribute.Relation<'oneToOne', 'api::year.year'> &
       Schema.Attribute.Required;
+  };
+}
+
+export interface ApiStatisticsByProblemStatisticsByProblem
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'statistics_by_problems';
+  info: {
+    displayName: 'Statistics by problem';
+    pluralName: 'statistics-by-problems';
+    singularName: 'statistics-by-problem';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::statistics-by-problem.statistics-by-problem'
+    >;
+    mean_score: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    standard_deviation: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    year: Schema.Attribute.Relation<'oneToOne', 'api::year.year'>;
   };
 }
 
@@ -1619,10 +1843,14 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::country-ranking.country-ranking': ApiCountryRankingCountryRanking;
+      'api::country-rankings-and-awards-only.country-rankings-and-awards-only': ApiCountryRankingsAndAwardsOnlyCountryRankingsAndAwardsOnly;
       'api::country.country': ApiCountryCountry;
+      'api::general-info.general-info': ApiGeneralInfoGeneralInfo;
       'api::problem-solution.problem-solution': ApiProblemSolutionProblemSolution;
       'api::problem-statement.problem-statement': ApiProblemStatementProblemStatement;
+      'api::problem.problem': ApiProblemProblem;
       'api::regulation.regulation': ApiRegulationRegulation;
+      'api::statistics-by-problem.statistics-by-problem': ApiStatisticsByProblemStatisticsByProblem;
       'api::student.student': ApiStudentStudent;
       'api::timeline.timeline': ApiTimelineTimeline;
       'api::year.year': ApiYearYear;

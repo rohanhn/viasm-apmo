@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistics_by_problems",
+  "info": {
+    "singularName": "statistics-by-problem",
+    "pluralName": "statistics-by-problems",
+    "displayName": "Statistics by problem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "mean_score": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "standard_deviation": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "year": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::year.year"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "country_rankings_and_awards_onlies",
+  "info": {
+    "singularName": "country-rankings-and-awards-only",
+    "pluralName": "country-rankings-and-awards-onlies",
+    "displayName": "Country rankings and awards only"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "year": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::year.year",
+      "required": true
+    },
+    "file": {
+      "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
+        "files"
+      ]
+    }
+  }
+}

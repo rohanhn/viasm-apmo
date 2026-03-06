@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "problems",
+  "info": {
+    "singularName": "problem",
+    "pluralName": "problems",
+    "displayName": "Problem"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "year": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::year.year",
+      "required": true
+    },
+    "standard_deviation": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "mean_score": {
+      "type": "decimal",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
